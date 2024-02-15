@@ -40,7 +40,9 @@
                 WidthRequest="100"
                 x:Name="Reset"
                 Clicked="Reset_Clicked"
-                BackgroundColor="{StaticResource PrimaryButtonColor}"/>
+                TextColor="#b99976"
+                BackgroundColor="#e5d3b3"/>
+
 
         </VerticalStackLayout>
         <FlexLayout Grid.Row="1" 
@@ -57,7 +59,8 @@
                         HeightRequest="40"
                         WidthRequest="40"
                         Clicked="Button_Clicked"
-                        />
+                        TextColor="#b99976"
+                        BackgroundColor="#e5d3b3"/>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </FlexLayout>

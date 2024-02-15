@@ -19,19 +19,29 @@ public partial class HangmanGamePage : ContentPage, INotifyPropertyChanged
 
     List<string> words = new List<string>()
      {
-        "python",
-        "javascript",
-        "maui",
-        "csharp",
-        "mongodb",
-        "sql",
-        "xaml",
-        "word",
-        "excel",
-        "powerpoint",
-        "code",
-        "hotreload",
-        "snippets"
+        "Gucci",
+        "Yves Saint Laurent",
+        "Marc Jacobs",
+        "Ralph Lauren",
+        "Calvin Klein",
+        "Hermes",
+        "Giorgio Armani",
+        "Burberry",
+        "Bvlgari",
+        "Balenciaga",
+        "Fendi",
+        "Versace",
+        "Givenchy",
+        "Louis Vuitton",
+        "Chanel",
+        "Christian Dior",
+        "Van Cleef",
+        "Valentino",
+        "Coach",
+        "Prada",
+        "Alexander McQueen",
+        "Dolce & Gabbana",
+        "Cartier"
      };
 
     List<char> guessed = new();
@@ -81,18 +91,18 @@ public partial class HangmanGamePage : ContentPage, INotifyPropertyChanged
 
     private List<char> _letters = new();
     private string _message;
-    private string _gameStatus = "Errors : 0 of 6";
-    private string _currentImageName = "img0.jpg";
+    private string _gameStatus = "Errors : 0 of 8";
+    private string _currentImageName = "hang1.png";
     #endregion
 
     public HangmanGamePage()
     {
         InitializeComponent();
-        _letters.AddRange("abcdefghijklmnopqrstuvwxyz");
+        _letters.AddRange("abcdefghijklmnopqrstuvwxyz&");
+        _letters.AddRange("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         BindingContext = this;
         PickWord();
         CalculateWord(answer, guessed);
-
     }
 
     #region gameEngine
@@ -150,21 +160,21 @@ public partial class HangmanGamePage : ContentPage, INotifyPropertyChanged
 
     private void SetGameStatus()
     {
-        GameStatus = $"Errors: {error} of {6}";
+        GameStatus = $"Errors: {error} of {8}";
         SetCurrentImage();
 
     }
 
     private void SetCurrentImage()
     {
-        CurrentImageName = $"img{error}.jpg";
+        CurrentImageName = $"hang{error}.png";
     }
 
     private void CheckIfGameLost()
     {
-        if (error == 6)
+        if (error == 8)
         {
-            Message = "Game Over...";
+            Message = "You Dead...";
 
             DisableLetters();
         }
@@ -197,7 +207,7 @@ public partial class HangmanGamePage : ContentPage, INotifyPropertyChanged
         if (answer == Spotlight.Replace(" ", ""))
         {
             Message = "You Won!";
-            DisableLetters();
+            EnableLetters();
         }
     }
 
